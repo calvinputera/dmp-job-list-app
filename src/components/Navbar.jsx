@@ -5,6 +5,10 @@ import { auth } from "../utils/firebase";
 import { FiChevronDown } from "react-icons/fi";
 
 const Navbar = () => {
+  const refreshPage = () => {
+    window.location.reload(false);
+  };
+
   const signUserOut = () => {
     signOut(auth).then(() => {
       localStorage.clear();
@@ -14,7 +18,12 @@ const Navbar = () => {
 
   return (
     <div className="shadow-md w-full px-4 flex justify-between items-center">
-      <img src={logo} alt="logo" className="w-24" />
+      <img
+        src={logo}
+        alt="logo"
+        className="w-24 cursor-pointer"
+        onClick={refreshPage}
+      />
       <div className="dropdown dropdown-bottom dropdown-end hover:bg-none">
         <label tabIndex={0} className="btn m-1">
           <img
