@@ -11,8 +11,9 @@ const Login = ({ setIsAuth }) => {
   const GoogleLogin = async () => {
     try {
       const result = await signInWithPopup(auth, googleProvider);
-      console.log(result);
       localStorage.setItem("isAuth", true);
+      localStorage.setItem("email", result.user.email);
+
       setIsAuth(true);
       navigate("/");
     } catch (error) {
